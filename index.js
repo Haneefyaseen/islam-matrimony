@@ -32,9 +32,9 @@ app.post("/users", async function (req, res) {
         "', '" +
         body.job +
         "', '" +
-        body.fatherName +
+        body.fname +
         "', '" +
-        body.motherName +
+        body.mname +
         "', '" +
         body.sibilings +
         "', '" +
