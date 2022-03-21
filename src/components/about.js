@@ -7,14 +7,8 @@ import {
   Button,
   CardHeader
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-
-const useStyles = makeStyles({
-  
-});
 
 function About() {
-  const classes = useStyles();
 
   return (
     <div>
