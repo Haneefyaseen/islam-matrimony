@@ -28,6 +28,35 @@
   color: #61dafb;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form > input {
+  margin: 5px 0 5px 0;
+  padding: 5px;
+  border: 2px solid thistle;
+  border-radius: 5px;
+}
+
+form > button {
+  color: indianred;
+  background-color: lightcyan;
+  padding: 4px;
+  border-radius: 5px;
+  width: 300px;
+  align-self: center;
+  border: 1px solid gold;
+}
+
+form > button:hover {
+  background-color: grey;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

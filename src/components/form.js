@@ -1,15 +1,44 @@
 import { useState } from "react";
+import { makeStyles } from "@mui/styles";
+
+// const useStyles = makeStyles({
+//   form: {
+//     display: "flex",
+//     flexDirection: "column",
+//   },
+// });
 
 function Form() {
-  const [uid, setUid] = useState(0);
-  const [fname, setFname] = useState("");
-  const [lname, setLname] = useState("");
+//   const classes = useStyles();
+
+  const [name, setName] = useState("");
+  const [dob, setDob] = useState("");
   const [age, setAge] = useState(0);
+  const [height, setHeight] = useState("");
+  const [qual, setQual] = useState("");
+  const [job, setJob] = useState("");
+  const [fname, setFname] = useState("");
+  const [mname, setMname] = useState("");
+  const [sibilings, setSibilings] = useState("");
+  const [address, setAddress] = useState("");
+  const [mobile, setMobile] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const user = { uid, fname, lname, age };
+      const user = {
+        name,
+        dob,
+        age,
+        height,
+        qual,
+        job,
+        fname,
+        mname,
+        sibilings,
+        address,
+        mobile,
+      };
       const response = await fetch("/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -21,31 +50,81 @@ function Form() {
     }
   };
   return (
-    <div className="container">
-      <form method="post" action="" onSubmit={handleSubmit}>
+    <div >
+      <form  method="post" action="" onSubmit={handleSubmit}>
         <input
+          required
+          type="text"
+          placeholder="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          required
+          type="date"
+          placeholder="date of birth"
+          value={dob}
+          onChange={(e) => setDob(e.target.value)}
+        />
+        <input
+          required
           type="number"
-          placeholder="UID"
-          value={uid}
-          onChange={(e) => setUid(e.target.value)}
+          placeholder="age"
+          value={age}
+          onChange={(e) => setAge(e.target.value)}
+        />
+        <input
+          required
+          type="text"
+          placeholder="height"
+          value={height}
+          onChange={(e) => setHeight(e.target.value)}
+        />
+        <input
+          required
+          type="text"
+          placeholder="qualification"
+          value={qual}
+          onChange={(e) => setQual(e.target.value)}
+        />
+        <input
+          required
+          type="text"
+          placeholder="job"
+          value={job}
+          onChange={(e) => setJob(e.target.value)}
         />
         <input
           type="text"
-          placeholder="FNAME"
+          placeholder="father name"
           value={fname}
           onChange={(e) => setFname(e.target.value)}
         />
         <input
           type="text"
-          placeholder="LNAME"
-          value={lname}
-          onChange={(e) => setLname(e.target.value)}
+          placeholder="mother name"
+          value={mname}
+          onChange={(e) => setMname(e.target.value)}
         />
         <input
-          type="number"
-          placeholder="AGE"
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
+          type="text"
+          placeholder="sibilings"
+          value={sibilings}
+          onChange={(e) => setSibilings(e.target.value)}
+        />
+        <input
+          required
+          type="text"
+          placeholder="address"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+        />
+        <input
+          required
+          type="text"
+          placeholder="mobile"
+          value={mobile}
+          onChange={(e) => setMobile(e.target.value)}
         />
         <button type="submit">Submit</button>
       </form>
