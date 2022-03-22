@@ -40,8 +40,8 @@ function Profiles() {
                           <td>{user.height}</td>
                           <td>{user.qualification}</td>
                           <td>{user.job}</td>
-                          <td>{user.fatherName}</td>
-                          <td>{user.motherName}</td>
+                          <td>{user.fathername}</td>
+                          <td>{user.mothername}</td>
                           <td>{user.sibilings}</td>
                       </tr>
                   ))
