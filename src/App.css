@@ -57,6 +57,36 @@ form > button:hover {
   font-weight: bold;
 }
 
+.profiles {
+  display: flex;
+  flex-direction: column;
+  background-color: lavender;
+}
+
+.view-btn {
+  background-color: lightgrey;
+  width: 400px;
+  align-self: center;
+  margin: 10px;
+  padding: 5px;
+}
+
+.view-btn:hover {
+  background: linear-gradient(to top left, silver, indigo);
+  color: white;
+  font-weight: bolder;
+}
+
+th, td{
+  border-top: 1px solid green;
+  border-right: 1px solid green;
+  padding: 3px;
+}
+
+tr:nth-child(odd) {
+  background-color: lightgreen;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

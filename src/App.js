@@ -4,6 +4,7 @@ import { Container } from '@mui/material'
 import Home from './components/home';
 import About from './components/about';
 import Form from './components/form';
+import Profiles from './components/profiles';
 import { makeStyles } from '@mui/styles'
 
 const useStyles = makeStyles({
@@ -38,11 +39,13 @@ function App() {
         <button className={classes.btn} onClick={() => setActive("Home")}>Home</button>
         <button className={classes.btn} onClick={() => setActive("About")}>About</button>
         <button className={classes.btn} onClick={() => setActive("Form")}>Form</button>
+        <button className={classes.btn} onClick={() => setActive("Profiles")}>Profiles</button>
       </nav>
       <Container>
         {active === "Home" && <Home/>}
         {active === "About" && <About/>}
         {active === "Form" && <Form/>}
+        {active === "Profiles" && <Profiles/>}
       </Container>
     </div>
   );
