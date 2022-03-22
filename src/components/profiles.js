@@ -5,7 +5,7 @@ function Profiles() {
     const [users, setUsers] = useState([])
   const handleView = async () => {
     try {
-        const res = await fetch('http://localhost:3000/users');
+        const res = await fetch('/users');
         const data = await res.json();
         setUsers(data)
     } catch (err) {
