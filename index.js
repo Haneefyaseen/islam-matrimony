@@ -32,8 +32,6 @@ app.post("/users", async function (req, res) {
     const body = req.body;
     const user = await pool.query(
       "INSERT INTO biodatas (name, dob, age, height, qualification, job, fathername, mothername, sibilings, address, mobile) VALUES ('" +
-        body.uid +
-        "', '" +
         body.name +
         "', '" +
         body.dob +
