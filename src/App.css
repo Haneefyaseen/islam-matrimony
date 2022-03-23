@@ -60,8 +60,38 @@ form > button:hover {
 .profiles {
   display: flex;
   flex-direction: column;
-  background-color: lavender;
+  flex: 1;
 }
+
+.profile-child {
+  display: flex;
+  flex-direction: row;
+  background-color: lavender;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.search {
+  width: 300px
+}
+
+.search-btn {
+  padding: 5px;
+  background-color: lightgoldenrodyellow
+}
+
+.reset-btn {
+  padding: 5px;
+  background-color: lightgoldenrodyellow
+}
+
+.search-btn:hover, .reset-btn:hover {
+  transform: scale(1.1);
+  background-color: lightpink;
+  border-radius: 50%;
+}
+
+
 
 .view-btn {
   background-color: lightgrey;

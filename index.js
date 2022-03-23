@@ -4,6 +4,7 @@ const cors = require("cors");
 const PORT = process.env.PORT || 3000;
 const path = require("path");
 const pool = require("./db");
+const format = require('pg-format')
 
 app.use(cors());
 app.use(express.json());
@@ -26,6 +27,21 @@ app.get("/users", async function (req, res) {
     console.error(err.message);
   }
 });
+
+app.post('/users/search', async function (req, res) {
+  try {
+    const body = req.body.name;
+    console.log(body)
+    pool.query(`SELECT * FROM biodatas where name ilike '${body}%'`,
+    (error ,results) => {
+      if(error) throw error
+      res.status(200)
+      res.json(results.rows);
+    })
+  } catch (err) {
+    console.error(err.message);
+  }
+})
 
 app.post("/users", async function (req, res) {
   try {
