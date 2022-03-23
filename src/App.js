@@ -5,6 +5,7 @@ import Home from './components/home';
 import About from './components/about';
 import Form from './components/form';
 import Profiles from './components/profiles';
+import Contact from './components/contact';
 import { makeStyles } from '@mui/styles'
 
 const useStyles = makeStyles({
@@ -12,7 +13,10 @@ const useStyles = makeStyles({
     backgroundColor: 'lightblue',
     padding: '10px',
     display: 'flex',
-    justifyContent: 'space-evenly'
+    justifyContent: 'space-evenly',
+    filter: 'drop-shadow(0 3px 5px black)',
+    borderBottomLeftRadius: '5px',
+    borderBottomRightRadius: '5px'
   }, 
   btn: {
     padding: '10px',
@@ -40,12 +44,14 @@ function App() {
         <button className={classes.btn} onClick={() => setActive("About")}>About</button>
         <button className={classes.btn} onClick={() => setActive("Form")}>Form</button>
         <button className={classes.btn} onClick={() => setActive("Profiles")}>Profiles</button>
+        <button className={classes.btn} onClick={() => setActive("Contact")}>Contact</button>
       </nav>
       <Container>
         {active === "Home" && <Home/>}
         {active === "About" && <About/>}
         {active === "Form" && <Form/>}
         {active === "Profiles" && <Profiles/>}
+        {active === "Contact" && <Contact/>}
       </Container>
     </div>
   );

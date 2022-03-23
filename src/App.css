@@ -38,6 +38,7 @@ form > input {
   padding: 5px;
   border: 2px solid thistle;
   border-radius: 5px;
+  background-color: #cee;
 }
 
 form > button {
@@ -48,6 +49,7 @@ form > button {
   width: 300px;
   align-self: center;
   border: 1px solid gold;
+  margin-top: 5px;
 }
 
 form > button:hover {
@@ -91,7 +93,11 @@ form > button:hover {
   border-radius: 50%;
 }
 
-
+.contact {
+  background-color: lightsalmon;
+  padding: 5px;
+  border-radius: 10%;
+}
 
 .view-btn {
   background-color: lightgrey;
@@ -113,8 +119,28 @@ th, td{
   padding: 3px;
 }
 
+td {
+  color: white;
+  font-weight: bolder;
+}
+
 tr:nth-child(odd) {
-  background-color: lightgreen;
+  background-color: maroon;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-form input {
+  width: 300px;
+  height: 30px;
+}
+
+.description {
+  height: 80px
 }
 
 @keyframes App-logo-spin {

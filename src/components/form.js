@@ -48,10 +48,13 @@ function Form() {
     } catch (err) {
       console.error(err.message);
     }
+    alert("Response received")
+    setName("");setDob("");setAge("");setHeight("");setQual("");setJob("");setFname("");
+    setMname("");setSibilings("");setAddress("");setMobile("");
   };
   return (
     <div >
-      <form  method="post" action="" onSubmit={handleSubmit}>
+      <form  id="form" method="post" action="" onSubmit={handleSubmit}>
         <input
           required
           type="text"

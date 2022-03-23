@@ -30,8 +30,7 @@ app.get("/users", async function (req, res) {
 app.post('/users/search', async function (req, res) {
   try {
     const body = req.body.name;
-    console.log(body)
-    pool.query(`SELECT * FROM biodatas where name ilike '${body}%'`,
+    pool.query(`SELECT * FROM biodatas where name ilike '%${body}%'`,
     (error ,results) => {
       if(error) throw error
       res.status(200)
