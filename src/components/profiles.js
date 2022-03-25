@@ -22,6 +22,7 @@ function Profiles() {
       const res = await fetch("/users");
       const data = await res.json();
       setUsers(data);
+      console.log(data)
     } catch (err) {
       console.error(err.message);
     }
@@ -38,7 +39,7 @@ function Profiles() {
         <button type="button" className="reset-btn" onClick={()=> setUsers([])}>Reset</button>
       </div>
       <div>
-        <table>
+        {/* <table>
           <thead>
             <th>UID</th>
             <th>NAME</th>
@@ -67,7 +68,20 @@ function Profiles() {
               </tr>
             ))}
           </tbody>
-        </table>
+        </table> */}
+        {
+          users.map(user => (
+            <ul><span>Biodata - {user.uid}</span>
+              <li><span>Name : </span><p>{user.name}</p></li>
+              <li><span>Gender : </span><p>{user.gender}</p></li>
+              <li><span>Marital Status : </span><p>{user.marital_status}</p></li>
+              <li><span>Age : </span><p>{user.age}</p></li>
+              <li><span>Category : </span><p>{user.category}</p></li>
+              <li><span>Qualification : </span><p>{user.qualification}</p></li>
+              <li><span>Job : </span><p>{user.job}</p></li>
+            </ul>
+          ))
+        }
       </div>
     </div>
   );

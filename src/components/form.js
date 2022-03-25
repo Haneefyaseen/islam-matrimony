@@ -9,17 +9,15 @@ import { makeStyles } from "@mui/styles";
 // });
 
 function Form() {
-//   const classes = useStyles();
+  //   const classes = useStyles();
 
   const [name, setName] = useState("");
-  const [dob, setDob] = useState("");
+  const [gender, setGender] = useState("Male");
+  const [maritalStatus, setMaritalStatus] = useState("Married");
   const [age, setAge] = useState(0);
-  const [height, setHeight] = useState("");
+  const [category, setCategory] = useState("Tamil");
   const [qual, setQual] = useState("");
   const [job, setJob] = useState("");
-  const [fname, setFname] = useState("");
-  const [mname, setMname] = useState("");
-  const [sibilings, setSibilings] = useState("");
   const [address, setAddress] = useState("");
   const [mobile, setMobile] = useState("");
 
@@ -28,17 +26,16 @@ function Form() {
     try {
       const user = {
         name,
-        dob,
+        gender,
+        maritalStatus,
         age,
-        height,
+        category,
         qual,
         job,
-        fname,
-        mname,
-        sibilings,
         address,
         mobile,
       };
+      console.log(user)
       const response = await fetch("/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -48,13 +45,20 @@ function Form() {
     } catch (err) {
       console.error(err.message);
     }
-    alert("Response received")
-    setName("");setDob("");setAge("");setHeight("");setQual("");setJob("");setFname("");
-    setMname("");setSibilings("");setAddress("");setMobile("");
+    alert("Response received");
+    setName("");
+    setGender("");
+    setMaritalStatus("");
+    setAge("");
+    setCategory("");
+    setQual("");
+    setJob("");
+    setAddress("");
+    setMobile("");
   };
   return (
-    <div >
-      <form  id="form" method="post" action="" onSubmit={handleSubmit}>
+    <div>
+      <form id="form" method="post" action="" onSubmit={handleSubmit}>
         <input
           required
           type="text"
@@ -62,13 +66,27 @@ function Form() {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <input
-          required
-          type="date"
-          placeholder="date of birth"
-          value={dob}
-          onChange={(e) => setDob(e.target.value)}
-        />
+        <label for="gender">Choose gender</label>
+        <select
+          name="gender"
+          value={gender}
+          style={{ marginBottom: "5px", width: "200px" }}
+          onChange={(e) => setGender(e.target.value)}
+        >
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <label for="marital-status">Marital Status</label>
+        <select
+          name="marital-status"
+          value={maritalStatus}
+          style={{ width: "200px", marginBottom: "5px" }}
+          onChange={(e) => setMaritalStatus(e.target.value)}
+        >
+          <option value="married">Married</option>
+          <option value="unmarried">Unmarried</option>
+          <option value="divorced">Divorced</option>
+        </select>
         <input
           required
           type="number"
@@ -76,13 +94,16 @@ function Form() {
           value={age}
           onChange={(e) => setAge(e.target.value)}
         />
-        <input
-          required
-          type="text"
-          placeholder="height"
-          value={height}
-          onChange={(e) => setHeight(e.target.value)}
-        />
+        <label for="category">Choose your language</label>
+        <select
+          name="category"
+          value={category}
+          style={{ marginBottom: "5px", width: "200px" }}
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          <option value="tamil">Tamil</option>
+          <option value="urdu">Udu</option>
+        </select>
         <input
           required
           type="text"
@@ -96,24 +117,6 @@ function Form() {
           placeholder="job"
           value={job}
           onChange={(e) => setJob(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="father name"
-          value={fname}
-          onChange={(e) => setFname(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="mother name"
-          value={mname}
-          onChange={(e) => setMname(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="sibilings"
-          value={sibilings}
-          onChange={(e) => setSibilings(e.target.value)}
         />
         <input
           required
