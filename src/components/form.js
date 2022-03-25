@@ -12,10 +12,10 @@ function Form() {
   //   const classes = useStyles();
 
   const [name, setName] = useState("");
-  const [gender, setGender] = useState("Male");
-  const [maritalStatus, setMaritalStatus] = useState("Married");
+  const [gender, setGender] = useState("male");
+  const [maritalStatus, setMaritalStatus] = useState("married");
   const [age, setAge] = useState(0);
-  const [category, setCategory] = useState("Tamil");
+  const [category, setCategory] = useState("tamil");
   const [qual, setQual] = useState("");
   const [job, setJob] = useState("");
   const [address, setAddress] = useState("");

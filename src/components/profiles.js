@@ -1,8 +1,16 @@
 import { useState } from "react";
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import CloseIcon from '@mui/icons-material/Close';
+import { Modal } from "@mui/material"
 
 function Profiles() {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState("");
+  const [open, setOpen] = useState(false)
+  const [gender, setGender] = useState("")
+  const [category, setCategory] = useState("")
+  const [maritalStatus, setMaritalStatus] = useState("")
+  const [location, setLocation] = useState("")
 
   const searchTable = async () => {
       try {
@@ -17,16 +25,40 @@ function Profiles() {
           console.error(err.message)
       }
   }
+
   const handleView = async () => {
     try {
       const res = await fetch("/users");
       const data = await res.json();
+      if(data.length === 0) {
+        alert("No data found!");
+      }
       setUsers(data);
       console.log(data)
     } catch (err) {
       console.error(err.message);
     }
   };
+
+  const handleSearch = async () => {
+    const body = { gender, category, maritalStatus, location}
+    try {
+      const res = await fetch('/users/filter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      const data = await res.json();
+      setUsers(data);
+      setOpen(false);
+      setGender("");setCategory("");setLocation("");setMaritalStatus("");
+    } catch (err) {
+      console.error(err.message);
+    }
+  }
+
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false);
 
   return (
     <div className="profiles">
@@ -35,6 +67,26 @@ function Profiles() {
           View Data
         </button>
         <input type="search" className="search" placeholder="search for names" value={search} onChange={(e)=> setSearch(e.target.value)}/>
+        <button onClick={handleOpen}><FilterAltIcon/></button>
+        <Modal
+        open={open}
+        close={handleClose}>
+          <div className="modal">
+            <h2>Filter options</h2>
+            <input type="text" value={gender} onChange={e=>setGender(e.target.value)}
+            placeholder="Gender"/>
+            <input type="text" value={category} onChange={e=>setCategory(e.target.value)}
+            placeholder="Language"/>
+            <input type="text" value={maritalStatus} onChange={e=>setMaritalStatus(e.target.value)}
+            placeholder="Marital status"/>
+            <input type="text" value={location} onChange={e=>setLocation(e.target.value)}
+            placeholder="Location"/>
+            <div className="modal-btn">
+            <button className="modal-search" onClick={handleSearch}>Search</button>
+            <button className="modal-close" onClick={handleClose}><CloseIcon/>Close</button>
+            </div>
+          </div>
+        </Modal>
         <button type="button" className="search-btn" onClick={searchTable}>Search</button>
         <button type="button" className="reset-btn" onClick={()=> setUsers([])}>Reset</button>
       </div>

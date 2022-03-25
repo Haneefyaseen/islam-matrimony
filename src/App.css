@@ -169,6 +169,52 @@ li p {
   height: 80px
 }
 
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.modal input {
+  margin-bottom: 8px;
+}
+
+.modal-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.modal-search {
+  margin-right: 5px;
+  background-color: rgb(81, 160, 235);
+  border-radius: 5px;
+}
+
+.modal-close {
+  padding: 5px;
+  background-color: red;
+  border-radius: 5px;
+}
+
+.modal-search:hover {
+  background-color: black;
+  font-weight: bold;
+  color: white;
+}
+
+.modal-close:hover {
+  background-color: black;
+  font-weight: bold;
+  color: white;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

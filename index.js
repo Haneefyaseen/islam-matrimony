@@ -17,7 +17,7 @@ app.get("/", function (req, res) {
 
 app.get("/users", async function (req, res) {
   try {
-     pool.query("SELECT * FROM biodatas", (error, results) => {
+     pool.query("SELECT * FROM biodatas order by uid asc", (error, results) => {
       if(error) throw error
       res.status(200)
       res.json(results.rows)
@@ -31,6 +31,22 @@ app.post('/users/search', async function (req, res) {
   try {
     const body = req.body.name;
     pool.query(`SELECT * FROM biodatas where name ilike '%${body}%'`,
+    (error ,results) => {
+      if(error) throw error
+      res.status(200)
+      res.json(results.rows);
+    })
+  } catch (err) {
+    console.error(err.message);
+  }
+})
+
+app.post('/users/filter', async function (req, res) {
+  try {
+    const body = req.body;
+    pool.query(`SELECT * FROM biodatas where gender ilike '${body.gender}%' and marital_status
+    ilike '${body.maritalStatus}%' and category ilike '${body.category}%' and address ilike '%${body.location}%'
+    order by uid asc`,
     (error ,results) => {
       if(error) throw error
       res.status(200)
