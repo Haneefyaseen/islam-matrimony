@@ -12,12 +12,14 @@ function Form() {
   //   const classes = useStyles();
 
   const [name, setName] = useState("");
-  const [gender, setGender] = useState("male");
-  const [maritalStatus, setMaritalStatus] = useState("married");
+  const [gender, setGender] = useState("Male");
+  const [maritalStatus, setMaritalStatus] = useState("Married");
   const [age, setAge] = useState(0);
-  const [category, setCategory] = useState("tamil");
+  const [height, setHeight] = useState("")
+  const [category, setCategory] = useState("Tamil");
   const [qual, setQual] = useState("");
   const [job, setJob] = useState("");
+  const [salary, setSalary] = useState("");
   const [address, setAddress] = useState("");
   const [mobile, setMobile] = useState("");
 
@@ -29,9 +31,11 @@ function Form() {
         gender,
         maritalStatus,
         age,
+        height,
         category,
         qual,
         job,
+        salary,
         address,
         mobile,
       };
@@ -50,9 +54,11 @@ function Form() {
     setGender("");
     setMaritalStatus("");
     setAge("");
+    setHeight("");
     setCategory("");
     setQual("");
     setJob("");
+    setSalary("");
     setAddress("");
     setMobile("");
   };
@@ -73,8 +79,8 @@ function Form() {
           style={{ marginBottom: "5px", width: "200px" }}
           onChange={(e) => setGender(e.target.value)}
         >
-          <option value="male">Male</option>
-          <option value="female">Female</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
         </select>
         <label for="marital-status">Marital Status</label>
         <select
@@ -83,9 +89,9 @@ function Form() {
           style={{ width: "200px", marginBottom: "5px" }}
           onChange={(e) => setMaritalStatus(e.target.value)}
         >
-          <option value="married">Married</option>
-          <option value="unmarried">Unmarried</option>
-          <option value="divorced">Divorced</option>
+          <option value="Married">Married</option>
+          <option value="Unmarried">Unmarried</option>
+          <option value="Divorced">Divorced</option>
         </select>
         <input
           required
@@ -94,6 +100,13 @@ function Form() {
           value={age}
           onChange={(e) => setAge(e.target.value)}
         />
+        <input
+          required
+          type="text"
+          placeholder="height"
+          value={height}
+          onChange={(e) => setHeight(e.target.value)}
+        />
         <label for="category">Choose your language</label>
         <select
           name="category"
@@ -101,8 +114,8 @@ function Form() {
           style={{ marginBottom: "5px", width: "200px" }}
           onChange={(e) => setCategory(e.target.value)}
         >
-          <option value="tamil">Tamil</option>
-          <option value="urdu">Udu</option>
+          <option value="Tamil">Tamil</option>
+          <option value="Urdu">Udu</option>
         </select>
         <input
           required
@@ -117,6 +130,13 @@ function Form() {
           placeholder="job"
           value={job}
           onChange={(e) => setJob(e.target.value)}
+        />
+        <input
+          required
+          type="text"
+          placeholder="salary"
+          value={salary}
+          onChange={(e) => setSalary(e.target.value)}
         />
         <input
           required

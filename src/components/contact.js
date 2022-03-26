@@ -7,6 +7,8 @@ function Contact () {
             <h3>Email: islam.matrimony@gmail.com</h3>
             <h3>GPay: bathoolza@okicici</h3>
             <h4>Service Charge: Rs: 500/-</h4>
+            <h4>If you are interested please send us your details through the form or by whatsapp</h4>
+            <h4>You will be notified through whatsapp</h4>
         </div>
         <div className="contact-form">
             <h2>Send your contact details</h2>

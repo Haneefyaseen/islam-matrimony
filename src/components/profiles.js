@@ -128,9 +128,11 @@ function Profiles() {
               <li><span>Gender : </span><p>{user.gender}</p></li>
               <li><span>Marital Status : </span><p>{user.marital_status}</p></li>
               <li><span>Age : </span><p>{user.age}</p></li>
+              <li><span>Height : </span><p>{user.height}</p></li>
               <li><span>Category : </span><p>{user.category}</p></li>
               <li><span>Qualification : </span><p>{user.qualification}</p></li>
               <li><span>Job : </span><p>{user.job}</p></li>
+              <li><span>Salary : </span><p>{user.salary}</p></li>
             </ul>
           ))
         }
