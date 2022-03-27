@@ -115,7 +115,7 @@ function Form() {
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="Tamil">Tamil</option>
-          <option value="Urdu">Udu</option>
+          <option value="Urdu">Urdu</option>
         </select>
         <input
           required
